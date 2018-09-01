@@ -29,14 +29,17 @@ console.log(word);
 var guessedLetters = [];
 var displayLettersArray = [];
 
+
+
 // function to get the amount of dashes for the selected word
 getRandomWordDashes = function () {
     var guessedLettersStr = "";
     for (var i = 0; i < computerWord.length; i++) {
-
-        guessedLetters.push(" __ ");
-
-        dashedLines.textContent = guessedLetters;
+        
+        guessedLetters.push( " __ ");
+        var array =guessedLetters.join();
+         var str2 = array.replace(/,/g," ");      
+        dashedLines.textContent = str2;
     }
 
 
@@ -49,9 +52,10 @@ getRandomWordDashes();
 function checkForWin() {
     if (guessedLetters.indexOf(" __ ") === -1) {
 
-        win++;
-        numberOfWins.textContent = win;
+        // win++;
+        // numberOfWins.textContent = win;
         winMessage.textContent = ("CONGRATULATIONS YOU WON THE WORD " + computerWord)
+    
 
     }
 };
@@ -83,7 +87,9 @@ function update(userGuess) {
         for (var j = 0; j < word.length; j++) {
             if (userGuess === word.charAt(j)) {
                 guessedLetters[j] = userGuess;
-                dashedLines.textContent = guessedLetters;
+                var array =guessedLetters.join();
+                var str2 = array.replace(/,/g," "); 
+                dashedLines.textContent = str2;
             }
         }
     };
