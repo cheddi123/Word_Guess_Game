@@ -15,14 +15,14 @@ background-image: url(https://i.stack.imgur.com/jGlzr.png);
 }
 
 @keyframes example {
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
+    0%   {background-color: teal;}
+    25%  {background-color:rgb(211, 34, 34);}
+    50%  {background-color:teal;}
+    100% {background-color:white;}
 }
 
-.jumbotron{
+.blink{
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 2s;
 
 }
