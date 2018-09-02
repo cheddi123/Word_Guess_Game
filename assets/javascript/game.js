@@ -19,7 +19,7 @@ var winMessage = document.getElementById("winMessage");
 
 // The computerGuess Array of words
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var sportsArray = ["Football", "Volleyball", "Cricket", "Basketball", "Soccer", "Swimming","cycling","boxing","TENNIS","baseball","rugby","curling","badminton"];
+var sportsArray = ["Football", "Volleyball", "Cricket", "Basketball", "Soccer", "Swimming","cycling","boxing","TENNIS","baseball","rugby","curling","badminton","bowling","golf","gymnastics","hockey"];
 
 var computerWord = sportsArray[Math.floor(Math.random() * sportsArray.length)];
 // makes the words in array  to lower case
