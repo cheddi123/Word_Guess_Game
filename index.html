@@ -4,14 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word_Guess_Game</title>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="assets/css/style.css">
    
 </head>
 <body>
-    <div class=" jumbotron text-center text-primary ">
-    <h1>Welcome to word guessing. Guess the names of sports</h1>
+    
+    <div class=" jumbotron text-center text-primary  ">
+    <h1> <i class="fas fa-cogs"></i> Welcome to word guessing. Guess the names of sports <span><i class="fab fa-affiliatetheme"></i></span></h1>
     <h3>Press any key to get started</h3>
  </div> 
 <div class=" jumbotron container">
@@ -19,13 +20,13 @@
     <p id="start"> </p>
     <p id="numberOfWins"></p>
     <p id="numberOfLosses"></p>
-    <p id="guessesLeft"></p>
+    <p class=" bg-light text-danger" id="guessesLeft"></p>
     <p id="keyTyped"></p>
     <p id="array"></p>
     <p id="dash"></p>
     <p id="wordChoosen"></p>
     <p id="letter"></p>
-    <p >You typed the letter : <span id="displayLetters"></span></p>
+    <p class=" bg-info text-white shadow-lg p-2 mb-5  rounded border border-primary" >You typed the letter : <span  id="displayLetters"></span></p>
     <button class="btn btn-primary" id="button" onclick="reset()"> click to play again</button>
 </div>
     <script src="assets/javascript/game.js"></script>

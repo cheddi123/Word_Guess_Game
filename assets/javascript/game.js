@@ -54,7 +54,7 @@ function checkForWin() {
 
         // win++;
         // numberOfWins.textContent = win;
-        winMessage.textContent = ("CONGRATULATIONS YOU WON THE WORD " + computerWord)
+        winMessage.textContent = ("CONGRATULATIONS YOU guess THE WORD " + computerWord)
     
 
     }
