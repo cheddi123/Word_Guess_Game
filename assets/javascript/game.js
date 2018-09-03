@@ -50,23 +50,27 @@ getRandomWordDashes();
 function checkForWin() {
     if (guessedLetters.indexOf(" __ ") === -1) {
 
-        winMessage.textContent = ("CONGRATULATIONS YOU guess THE WORD :" + computerWord)
+        winMessage.textContent = ("CONGRATULATIONS YOU guess THE WORD: " + computerWord)
     
 
     }
-};
+}
 
 
 numberOfGuessesLeft.textContent = ("Number of guesses left : " + guessLeft);
 // function to play again
 function reset() {
     button.textContent = location.reload();
-};
-// function to display letters UPPERCASE
+}
+// function to display letters UPPERCASE and to display those letters already guessed without repetitions
 function displayUpperCase(userGuess) {
     userGuess = userGuess.toUpperCase();
-    displayLettersArray.push(userGuess);
-    displayLetters.textContent = (displayLettersArray);
+    if (displayLettersArray.indexOf(userGuess) === -1) {
+        displayLettersArray.push(userGuess);
+        displayLetters.textContent = (displayLettersArray);
+    } else {
+        alert("you already guessed this letter");
+    }
 }
 
 // function to update the progress of the game
