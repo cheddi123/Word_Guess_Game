@@ -99,7 +99,7 @@ function update(userGuess) {
             alert("you lost");
             loss ++;
             numberOfLosses.textContent=loss;
-            winMessage.textContent = ("Sorry you lost. Click to play again ");
+            winMessage.textContent = ("Sorry you lost. Try again ");
           generateNewWord();
         } 
     }
