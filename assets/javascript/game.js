@@ -91,7 +91,7 @@ function displayUpperCase(letterguess) {
 
 // function to update the progress of the game
 function update(userGuess) {
-   
+    displayUpperCase(userGuess);
     if (word.indexOf(userGuess) === -1) {
         guessLeft--;
         numberOfGuessesLeft.textContent = ("Number of guesses left : " + guessLeft);
@@ -134,7 +134,6 @@ function intialize(letterguess) {
 
     } else {
         update(letterguess);
-        displayUpperCase(letterguess);
 
     }
 
@@ -150,6 +149,7 @@ document.onkeyup = function(event) {
         var userGuess = event.key.toLocaleLowerCase();
         // console.log(userGuess);
         intialize(userGuess);
+       
 
         }
      
