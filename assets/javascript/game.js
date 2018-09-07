@@ -1,28 +1,26 @@
 
 // The computerGuess Array of words and array of the alphabet
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var alphabet = ["a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var sportsArray = ["Football", "Volleyball", "Cricket", "Basketball", "Soccer", "Swimming","cycling","boxing","TENNIS","baseball","rugby","curling","badminton","bowling","golf","gymnastics","hockey"];
 
 var isGameon=false;
-var letter= document.getElementById("letter");
-var start = document.getElementById("start");
-var keyTyped= document.getElementById("keyTyped");
-var letterArray = document.getElementById("array");
 var dashedLines = document.getElementById("dash");
 var displayLetters = document.getElementById("displayLetters");
 var numberOfWins = document.getElementById("numberOfWins");
 var numberOfLosses = document.getElementById("numberOfLosses");
 var numberOfGuessesLeft = document.getElementById("guessesLeft");
 var button =document.getElementById("button");
-var winMessage = document.getElementById("winMessage");
+var message = document.getElementById("winMessage");
+var song = document.createElement("audio");
+song.setAttribute("src","assets/BestCoast.mp3")
 
   // counter variables
 var win=0;
 var loss=0;
 var guessLeft;
 
-var guessedLetters;
-var displayLettersArray;
+var guessedLetters=[];
+var displayLettersArray=[];
 var computerWord;
 var wordDash;
 var word;
@@ -31,7 +29,6 @@ var word;
 function generateNewWord() {
     isGameon = true;
     guessedLetters = [];
-
     displayLettersArray = [];
     displayLettersArray.pop(guessedLetters);
     console.log(displayLettersArray);
@@ -75,9 +72,9 @@ function reset() {
 }
 // function to display letters UPPERCASE and to display those letters already guessed without repetitions
 function displayUpperCase(letterguess) {
-     letterguess = letterguess.toUpperCase();
-    if (displayLettersArray.indexOf(letterguess) ===-1) {
-        displayLettersArray.push(letterguess);
+      var upper = letterguess.toUpperCase();
+    if (displayLettersArray.indexOf(upper) ===-1) {
+        displayLettersArray.push(upper);
         displayLetters.textContent = ( displayLettersArray);
         console.log(displayLettersArray);
         
@@ -92,6 +89,7 @@ function displayUpperCase(letterguess) {
 // function to update the progress of the game
 function update(userGuess) {
     displayUpperCase(userGuess);
+    
     if (word.indexOf(userGuess) === -1) {
         guessLeft--;
         numberOfGuessesLeft.textContent = ("Number of guesses left : " + guessLeft);
@@ -99,7 +97,7 @@ function update(userGuess) {
             alert("you lost");
             loss ++;
             numberOfLosses.textContent=loss;
-            winMessage.textContent = ("Sorry you lost. Try again ");
+            message.textContent = ("Sorry you lost. Try again ");
           generateNewWord();
         } 
     }
@@ -110,18 +108,23 @@ function update(userGuess) {
                 var array =guessedLetters.join();
                 var str2 = array.replace(/,/g," "); 
                 dashedLines.textContent = str2;
+                
                 if (guessedLetters.indexOf(" __ ") === -1) {
-                    win ++;  
+                    win ++; 
+                    
                     numberOfWins.textContent=win;
-                    winMessage.textContent = ("CONGRATULATIONS YOU guessed THE WORD " + computerWord + ".  Now guess the following word");
-                      generateNewWord();
+                  message.textContent = ("CONGRATULATIONS YOU guessed THE WORD " + computerWord + ".  Now guess the following word");
+                 
+                  song.currentTime=130;
+                  song.play();
+                  generateNewWord();    
 
                      
                    
                 }
             }
         }
-    };
+    }
    
 }
 
@@ -148,8 +151,8 @@ document.onkeyup = function(event) {
     // Determines which key was pressed.
         var userGuess = event.key.toLocaleLowerCase();
         // console.log(userGuess);
-        intialize(userGuess);
-       
+        // intialize(userGuess);
+          update(userGuess);
 
         }
      
